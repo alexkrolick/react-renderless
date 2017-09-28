@@ -13,6 +13,7 @@
   "keywords": ["react", "render", "composition"],
   "author": "Alex Krolick",
   "license": "MIT",
+  "files": ["dist", "src"],
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",

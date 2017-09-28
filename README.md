@@ -6,11 +6,29 @@ Utilities for creating and working with renderless React components.
 
 ## Usage
 
+### Script
+
+```html
+<script src="https://unpkg.com/react-renderless"></script>
+```
+
 ```jsx
-// One of the following:
-const { StateProvider, withRender } = reactRenderless // script tag
-const { StateProvider, withRender } = require("react-renderless") // commonjs
-import { StateProvider, withRender } from "react-renderless" // es module
+const { StateProvider, withRender } = reactRenderless
+```
+
+### Package
+
+```bash
+yarn add react-renderless
+# OR
+npm install --save react-renderless
+```
+
+```jsx
+// commonjs
+const { StateProvider, withRender } = require("react-renderless") 
+// es module
+import { StateProvider, withRender } from "react-renderless" 
 ```
 
 ## API
@@ -27,7 +45,7 @@ StateProvider.propTypes = {
 }
 ```
 
-- The [render prop] (https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) will be called with 2 arguments: `(props, context)` where props is `{...this.props, ...this.state, ...this.handlers}`. The prop should either be `render` or a the only child of the parent. The render prop must return an element when called (not a component class!).
+- The [render prop](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) will be called with 2 arguments: `(props, context)` where props is `{...this.props, ...this.state, ...this.handlers}`. The prop should either be `render` or a the only child of the parent. The render prop must return an element when called (not a component class!).
 
 - Initial state: The component's initial state can be set by passing a prop or by setting an `initialState` getter on the class.
 
