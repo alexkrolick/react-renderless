@@ -21,7 +21,12 @@ class StateProvider extends Component {
   }
 
   render() {
-    const { children, render: renderProp, ...otherProps } = this.props
+    const {
+      children,
+      render: renderProp,
+      initialState,
+      ...otherProps
+    } = this.props
     const renderer = children || renderProp || this.defaultRender
     return renderer(
       { ...otherProps, ...this.state, ...this._handlers },
