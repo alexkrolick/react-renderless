@@ -155,19 +155,19 @@ class Reducer extends StateProvider {
 
 const App = () => (
   <Reducer initialState={{ foo: "", bar: 0 }}>
-    {({ action, ...props }) => (
+    {({ action, ...state }) => (
       <div>
         <p>
           <b>Foo</b>&nbsp;
           <input
             onChange={e => action("foo:update", e.target.value)}
-            value={props.foo}
+            value={state.foo}
           />
         </p>
         <p>
           <b>Bar</b>&nbsp;
           <button onClick={() => action("bar:dec")}>+</button>
-          <span>{props.bar}</span>
+          <span>{state.bar}</span>
           <button onClick={() => action("bar:inc")}>+</button>
         </p>
       </div>
