@@ -1,4 +1,4 @@
-# react-renderless ⚙️🖇⨌
+# react-renderless 🖇
 
 Utilities for creating and working with renderless React components.
 
