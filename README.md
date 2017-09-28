@@ -27,8 +27,7 @@ StateProvider.propTypes = {
 }
 ```
 
-- The [render prop](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce):
-  `children` or `render` (pick one). Will be called with 2 arguments: `(props, context)` where props is `{...this.props, ...this.state, ...this.handlers}`.
+- The [render prop] (https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) will be called with 2 arguments: `(props, context)` where props is `{...this.props, ...this.state, ...this.handlers}`. The prop should either be `render` or a the only child of the parent. The render prop must return an element when called (not a component class!).
 
 - Initial state: The component's initial state can be set by passing a prop or by setting an `initialState` getter on the class.
 
@@ -80,7 +79,9 @@ const TextInput = textStateFactory(Input)
 const BigTextInput = textStateFactory(BigInput)
 ```
 
-## Example
+## Examples
+
+#### Textboxes [Codepen](https://codepen.io/alexkrolick/pen/RLVprZ/)
 
 [<img width="365" alt="screen shot 2017-09-28 at 1 14 30 am" src="https://user-images.githubusercontent.com/1571667/30955993-774923ea-a3ea-11e7-8cc9-65978c654b21.png">](https://codepen.io/alexkrolick/pen/RLVprZ/)
 
@@ -126,6 +127,52 @@ const App = () => (
     <UpperTextInput /> UpperTextInput <br />
     <LowerTextInput initialState={{ text: "" }} /> LowerTextInput
   </div>
+);
+
+ReactDOM.render(<App />, document.body);
+```
+
+### Reducer [Codepen](https://codepen.io/alexkrolick/pen/eGWEXZ?editors=0010)
+
+[<img width="279" alt="screen shot 2017-09-28 at 2 39 14 am" src="https://user-images.githubusercontent.com/1571667/30959869-48ae6f20-a3f6-11e7-94e9-0457435fb4db.png">](https://codepen.io/alexkrolick/pen/eGWEXZ?editors=0010)
+
+```jsx
+class Reducer extends StateProvider {
+  get handlers() {
+    const reducer = {
+      "foo:update": ({ foo }) => ({ foo: foo }),
+      "bar:inc": () => ({ bar: this.state.bar + 1 }),
+      "bar:dec": () => ({ bar: this.state.bar - 1 })
+    };
+    return {
+      action: (type, payload) => {
+        if (!reducer[type]) this.setState({});
+        this.setState(reducer[type](payload));
+      }
+    };
+  }
+}
+
+const App = () => (
+  <Reducer initialState={{ foo: "", bar: 0 }}>
+    {({ action, ...props }) => (
+      <div>
+        <p>
+          <b>Foo</b>&nbsp;
+          <input
+            onChange={e => action("foo:update", e.target.value)}
+            value={props.foo}
+          />
+        </p>
+        <p>
+          <b>Bar</b>&nbsp;
+          <button onClick={() => action("bar:dec")}>+</button>
+          <span>{props.bar}</span>
+          <button onClick={() => action("bar:inc")}>+</button>
+        </p>
+      </div>
+    )}
+  </Reducer>
 );
 
 ReactDOM.render(<App />, document.body);
