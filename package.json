@@ -1,6 +1,6 @@
 {
   "name": "react-renderless",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "renderless state provider utilities for react",
   "repository": "https://github.com/alexkrolick/react-renderless",
   "main": "dist/react-renderless.js",
@@ -10,10 +10,17 @@
     "watch": "webpack --config=webpack.config.js --watch",
     "prepare": "npm run build"
   },
-  "keywords": ["react", "render", "composition"],
+  "keywords": [
+    "react",
+    "render",
+    "composition"
+  ],
   "author": "Alex Krolick",
   "license": "MIT",
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
