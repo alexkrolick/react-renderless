@@ -4,6 +4,16 @@ Utilities for creating and working with renderless React components.
 
 *What is a "renderless component"?* A renderless component is the opposite of a stateless component. It does not implement a render method. Instead, renderless components are composed with stateless functional components to create UI elements.
 
+- [Usage](#usage)
+- [API](#api)
+  - [StateProvider Component](#stateprovider-component)
+  - [withRender Higher-Order Component](#withrender-higher-order-component)
+- [Examples](#examples)
+  - [Textboxes](#textboxes-codepen)
+  - [Reducer](#reducer-codepen)
+- [Inspiration](#inspiration)
+- [License](#license)
+
 ## Usage
 
 ### Script
