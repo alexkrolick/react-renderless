@@ -1,0 +1,35 @@
+{
+  "name": "react-renderless",
+  "version": "0.0.1",
+  "description": "renderless state provider utilities for react",
+  "repository": "https://github.com/alexkrolick/react-renderless",
+  "main": "dist/react-renderless.js",
+  "scripts": {
+    "test": "echo \"We'll get there someday\" && exit 1",
+    "build": "NODE_ENV=production webpack --config=webpack.config.js",
+    "watch": "webpack --config=webpack.config.js --watch",
+    "prepare": "npm run build"
+  },
+  "keywords": ["react", "render", "composition"],
+  "author": "Alex Krolick",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "prettier": "^1.6.1",
+    "webpack": "^3.5.6"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^15.3.1 || ^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "prettier": {
+    "semi": false,
+    "trailingComma": "es5"
+  }
+}
