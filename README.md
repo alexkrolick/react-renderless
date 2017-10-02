@@ -165,16 +165,18 @@ ReactDOM.render(<App />, document.body);
 [<img width="279" alt="screen shot 2017-09-28 at 2 39 14 am" src="https://user-images.githubusercontent.com/1571667/30959869-48ae6f20-a3f6-11e7-94e9-0457435fb4db.png">](https://codepen.io/alexkrolick/pen/eGWEXZ?editors=0010)
 
 ```jsx
+const { StateProvider, withRender } = reactRenderless;
+
 class Reducer extends StateProvider {
   get handlers() {
     const reducer = {
       "foo:update": ({ foo }) => ({ foo: foo }),
-      "bar:inc": () => ({ bar: this.state.bar + 1 }),
-      "bar:dec": () => ({ bar: this.state.bar - 1 })
+      "bar:inc": () => ({ bar }) => ({ bar: bar + 1 }),
+      "bar:dec": () => ({ bar }) => ({ bar: bar - 1 })
     };
     return {
       action: (type, payload) => {
-        if (!reducer[type]) this.setState({});
+        if (!reducer[type]) return this.setState({});
         this.setState(reducer[type](payload));
       }
     };
@@ -194,7 +196,7 @@ const App = () => (
         </p>
         <p>
           <b>Bar</b>&nbsp;
-          <button onClick={() => action("bar:dec")}>+</button>
+          <button onClick={() => action("bar:dec")}>-</button>
           <span>{state.bar}</span>
           <button onClick={() => action("bar:inc")}>+</button>
         </p>
