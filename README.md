@@ -11,6 +11,7 @@ Utilities for creating and working with renderless React components.
 - [Examples](#examples)
   - [Textboxes](#textboxes-codepen)
   - [Reducer](#reducer-codepen)
+  - [More Examples on Codepen](#more-examples-on-codepen)
 - [Inspiration](#inspiration)
 - [License](#license)
 
@@ -207,6 +208,11 @@ const App = () => (
 
 ReactDOM.render(<App />, document.body);
 ```
+
+### More Examples on Codepen
+
+- Global reducer using [React-Broadcast](https://github.com/ReactTraining/react-broadcast): https://codepen.io/alexkrolick/pen/NaYaXj
+- Nested, auto-namespaced global reducers: https://codepen.io/alexkrolick/pen/MEvGWG
 
 ## Inspiration
 
