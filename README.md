@@ -220,6 +220,10 @@ ReactDOM.render(<App />, document.body);
 - [React Powerplug](https://github.com/renatorib/react-powerplug) by Renato Ribeiro
 - [Use a Render Prop!](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) by Michael Jackson
 
+## Similar
+
+- [Unstated](https://github.com/jamiebuilds/unstated) by Jamie Kyle
+
 ## License 
 
 [MIT](./LICENSE)
